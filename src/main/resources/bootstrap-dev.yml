@@ -1,0 +1,54 @@
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:rayit-config-server.jks
+    key-store-type: JKS
+    key-alias: config-server-key
+    key-store-password: changeit
+    servlet:
+      session:
+        #登录session超时时间，单位分。如果设置的超时时间不满一分钟，将按一分钟来算，超过1分钟才按照你设置的超时时间来算
+        timeout: 5m
+
+spring:
+  cloud:
+    config:
+      #仓库的分支
+      label: master
+      server:
+        default-application-name: rayit-config-server
+        git:
+          basedir: D:\\development\\data\\config_repo
+          #git仓库地址
+          uri: https://github.com/wr1016/rayit-config-repo
+          #在本地副本脏的情况下从远程存储库强制拉出配置数据
+          force-pull: true
+          #超时时间，单位秒
+          timeout: 60
+          #控制配置服务器多久从Git后端获取更新的配置数据，单位秒
+          refreshRate: 60
+          #仓库路径
+          search-paths: "DEV,DEV/*,DEV/*/*,DEV/*/*/*, UAT,UAT/*,UAT/*/*,UAT/*/*/*, PRD,PRD/*,PRD/*/*,PRD/*/*/*"
+          #访问git仓库的用户名
+          username: wangrui1016@qq.com
+          #访问git仓库的用户密码 如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
+          password: wangrui7650696
+  #配置登录密码
+  security:
+    basic:
+      enabled: true
+    user:
+      name: admin
+      #TODO going to load key file by java class method
+      password: ${security.user.login.password}
+
+encrypt:
+  #非对称加密
+  #key: 0e010e17-2529-4581-b907-c8edcfd6be63
+  #对称加密RSA，生成jks文件：keytool -genkeypair -alias config-server-key -keyalg RSA -dname "CN=Config Server,OU=Rayit,O=My Own Company,L=GuangZhou,S=Beijing,C=CN" -keypass changeit -keystore rayit-config-server.jks -storepass changeit
+  key-store:
+    location: classpath:rayit-config-server.jks
+    password: changeit
+    alias: config-server-key
+    secret: changeit

@@ -1,0 +1,7 @@
+title: "Test Name DEV demo1"
+
+user:
+  password: '{cipher}AQA8roOg1RdmjIWpSmVqyg6nXot5al3G2uflbtWvMt8+AMSOLDsegyjJHMjMfrGG9/Ij2tzPTHI7HnD7T121G7h33JbPAlIP0jgqjIgSpgDD3m2edClMCvbhoDmvkJ2X6mlXogsJ7ISdbyAw4G6fY1qs2vIU4kxJao/5auh/VxIJ7OvnaWq8c+0hffqHodfeSMj1W2OlWBHCePtHXkzGaLmdsKReXxWVhaK5+0zalO+yBWH1jRr1BRT6QMHkOJUrcdO+0ijmRnXv478xvDPXsGAJlB6rO6TDVMwuCQk+Qn2hNzqV8R788cDEfeI2gxnH74LFKQLJhtqSRWVr31gLxjS8VNc+ow62T273NDzH7hMm1pV5Geieo3TPxFApuUN+ijc='
+
+config:
+  client: '{cipher}a06d29e1e6399f45c64227318da80ff1b00eb697e19eea499130f7e1a098ab90'

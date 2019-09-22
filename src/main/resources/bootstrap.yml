@@ -1,0 +1,44 @@
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:rayit-config-server.jks
+    key-store-type: JKS
+    key-alias: config-server-key
+    key-store-password: changeit
+  servlet:
+    session:
+      timeout: 5m
+
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      #仓库的分支
+      label: master
+      server:
+        # bootstrap: true
+        # default-application-name: @pom.artifactId@
+        default-application-name: rayit-config-server
+        native:
+          # searchLocations: classpath:/config/DEV,classpath:/config/LOCAL
+          # searchLocations: file:./config/DEV, file:./config/LOCAL
+          searchLocations: file:./config/{profile}, file:./config/{profile}/demo1, file:./config/LOCAL
+  #配置登录密码
+  security:
+    basic:
+      enabled: true
+    user:
+      name: admin
+      password: ${security.user.login.password}
+
+encrypt:
+  #非对称加密
+  #key: 0e010e17-2529-4581-b907-c8edcfd6be63
+  #对称加密RSA，生成jks文件：keytool -genkeypair -alias config-server-key -keyalg RSA -dname "CN=Config Server,OU=Rayit,O=My Own Company,L=GuangZhou,S=Beijing,C=CN" -keypass changeit -keystore rayit-config-server.jks -storepass changeit
+  key-store:
+    location: classpath:rayit-config-server.jks
+    password: changeit
+    alias: config-server-key
+    secret: changeit
