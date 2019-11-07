@@ -33,7 +33,7 @@ spring:
           #访问git仓库的用户名
           username: wangrui1016@qq.com
           #访问git仓库的用户密码 如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
-          password: wangrui7650696
+          password: 
   #配置登录密码
   security:
     basic:
