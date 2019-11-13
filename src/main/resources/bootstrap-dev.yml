@@ -31,9 +31,9 @@ spring:
           #仓库路径
           search-paths: "DEV,DEV/*,DEV/*/*,DEV/*/*/*, UAT,UAT/*,UAT/*/*,UAT/*/*/*, PRD,PRD/*,PRD/*/*,PRD/*/*/*"
           #访问git仓库的用户名
-          username: wangrui1016@qq.com
+          username:
           #访问git仓库的用户密码 如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
-          password: 
+          password:
   #配置登录密码
   security:
     basic:
